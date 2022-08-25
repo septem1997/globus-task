@@ -25,7 +25,7 @@ const RateInfo = styled.div`
     margin: 0 18px;
   }
 `
-const AddTaskForm = (props: {
+const CreateTaskForm = (props: {
     rates: ExchangeRate[],
     handleCreate: Function
 }) => {
@@ -84,4 +84,4 @@ const AddTaskForm = (props: {
     </div>
 }
 
-export default AddTaskForm
+export default CreateTaskForm

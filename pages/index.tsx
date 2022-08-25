@@ -5,7 +5,7 @@ import TodoList from "../components/todo/TodoList";
 import {TodoListItem} from "../types/TodoList";
 import ExchangeAPI from "./api/exchangeAPI";
 import {ExchangeRate} from "../types/exchange";
-import CreateTaskForm from "../components/todo/AddTaskForm";
+import CreateTaskForm from "../components/todo/CreateTaskForm";
 
 const Home = ({rates}:{rates:ExchangeRate[]}) => {
   const [tasks,setTasks] = useState([] as TodoListItem[])
