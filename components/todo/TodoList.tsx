@@ -56,8 +56,10 @@ const TodoList = (
     return <ListWrap>
         <div>{props.title}</div>
         {props.list.map(item => <div className={'item'} key={item.id}>
-            <div onClick={()=>{props.onToggle(item.id)}} className={'title'}>
-                <input type={"checkbox"} readOnly={true} checked={item.isDone}/>
+            <div className={'title'}>
+                <input
+                    onClick={()=>{props.onToggle(item.id)}}
+                    type={"checkbox"} readOnly={true} checked={item.isDone}/>
                 <span className={item.isDone ? 'done' : ''}>{item.taskTitle}</span>
             </div>
             {item.costs.map(c =>
