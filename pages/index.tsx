@@ -12,15 +12,21 @@ const Home = ({rates}:{rates:ExchangeRate[]}) => {
   const undoList = useMemo(()=>tasks.filter(t => !t.isDone),[tasks])
   const doneList = useMemo(()=>tasks.filter(t => t.isDone),[tasks])
   const toggleTaskStatus = useCallback((id:number)=>{
-    const res = [...tasks]
-    const target = res.find(item => item.id===id)!
-    target.isDone = !target.isDone
-    setTasks(res)
-  },[tasks])
-  const createTask = useCallback((task:TodoListItem)=>{
-        setTasks(tasks.concat(task))
+    setTasks((prevState)=>{
+      const res = [...prevState]
+      const index = res.findIndex(item => item.id===id)!
+      if (index !== -1) {
+        res.splice(index, 1, { ...res[index], isDone:  !res[index].isDone })
       }
-  ,[tasks])
+      return res
+    })
+  },[])
+  const createTask = useCallback((task:TodoListItem)=>{
+        setTasks((list)=>{
+          return list.concat(task)
+        })
+      }
+  ,[])
   return <div>
     <PageContainer>
       <CreateTaskForm rates={rates} handleCreate={createTask} />
