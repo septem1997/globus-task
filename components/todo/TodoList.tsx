@@ -63,13 +63,13 @@ const TodoList = (
                 <span className={item.isDone ? 'done' : ''}>{item.taskTitle}</span>
             </div>
             {item.costs.map(c =>
-                <div title={c.value.toString()} className={'cost'} key={c.currency}>{ExchangeRateSymbol[c.currency]}{c.value}</div>
+                <div title={parseFloat(c.value.toFixed(5)).toString()} className={'cost'} key={c.currency}>{ExchangeRateSymbol[c.currency]}{parseFloat(c.value.toFixed(5))}</div>
             )}
         </div>)}
         <div className={'item sum'}>
             <div className={'title'}>{props.sumText}</div>
             {sum.map(c =>
-                <div title={c.value.toString()} className={'cost'} key={c.currency}>{ExchangeRateSymbol[c.currency]}{c.value}</div>
+                <div title={parseFloat(c.value.toFixed(5)).toString()} className={'cost'} key={c.currency}>{ExchangeRateSymbol[c.currency]}{parseFloat(c.value.toFixed(5))}</div>
             )}
         </div>
     </ListWrap>

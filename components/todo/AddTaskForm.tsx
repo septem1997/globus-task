@@ -64,7 +64,7 @@ const AddTaskForm = (props: {
         <FormWrap>
             <input value={taskName} onInput={e => setTaskName(e.currentTarget.value)} placeholder={'任务'}
                    className={'title'}/>
-            <input value={cost} onInput={e => setCost(Number(e.currentTarget.value))} placeholder={'价格'}
+            <input type={"number"} value={cost} onInput={e => setCost(parseFloat(e.currentTarget.value))} placeholder={'价格'}
                    className={'cost'}/>
             <select
                 value={currency}
